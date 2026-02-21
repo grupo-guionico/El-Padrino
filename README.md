@@ -1,2 +1,33 @@
-# El-Padrino
-las 8 secuencias de la película traducidas al español con alta fidelidad al formato del guion escrito por Mario Puzo y Francis Ford Coppola - segundo borrador 1 de marzo de 1971-(especificaciones). Guiones en formato html, PDF. La traducción y el complemento al formato guion de especificaiones estuvo acargo del GRUPO GUIONICO.
+# 🎬 GRUPO GUIONICO
+
+## 📚 GUIONES DE PELÍCULAS EN ESPAÑOL
+
+Colección de guiones cinematográficos traducidos al español con alta fidelidad al formato original y al estilo de los escritores.
+
+### 📌 CONTENIDO
+
+- ✅ **Las 8 secuencias completas** de cada película
+- ✅ Formato profesional de guion (especificaciones)
+- ✅ Traducción respetando el estilo original
+- ✅ Disponible en **HTML** (lectura online) y **PDF** (descarga)
+
+### PELÍCULAS DISPONIBLES
+
+| Película | Secuencias | Estado |
+|----------|------------|--------|
+| El Padrino | 8 secuencias | ✅ Completas |
+
+### 📖 CÓMO USAR
+
+Cada película tiene su propia carpeta con archivos individuales:
+📁 el-padrino/
+├── secuencia-01.html
+├── secuencia-01.pdf
+├── secuencia-02.html
+├── secuencia-02.pdf
+└── ...
+
+
+---
+
+**© GRUPO GUIONICO** - Traducciones para estudio y conservación cultural
