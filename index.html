@@ -678,23 +678,42 @@
             document.getElementById('nextPage').disabled = pagina === total;
         }
 
-        function abrirModalSecuencias(p) {
-            let html = `<h2>${p.titulo}</h2>`;
-            for (let i = 1; i <= p.secuencias; i++) {
-                html += `
-                    <div class="secuencia-item">
-                        <span>Secuencia ${i}</span>
-                        <div>
-                            <a href="${p.carpeta}/secuencia${i}.html" target="_blank">📖 HTML</a>
-                            <a href="${p.carpeta}/secuencia${i}.pdf" target="_blank">📥 PDF</a>
-                        </div>
-                    </div>
-                `;
-            }
-            html += '<div class="cerrar-modal" onclick="document.getElementById(\'modalSecuencias\').classList.remove(\'activo\')">✕ Cerrar</div>';
-            modalSecContenido.innerHTML = html;
-            modalSec.classList.add('activo');
-        }
+      function abrirModal(p) {
+    let html = `<h2>${p.titulo}</h2>`;
+    
+    // SECUENCIAS ACTIVAS (YA SUBIDAS)
+    html += `<div class="secuencia-item">`;
+    html += `<span>Secuencia 1</span>`;
+    html += `<div><a href="${p.carpeta}/secuencia1.html" target="_blank">📖 HTML</a>`;
+    html += `<a href="${p.carpeta}/secuencia1.pdf" target="_blank">📥 PDF</a></div>`;
+    html += `</div>`;
+
+    html += `<div class="secuencia-item">`;
+    html += `<span>Secuencia 2</span>`;
+    html += `<div><a href="${p.carpeta}/secuencia2.html" target="_blank">📖 HTML</a>`;
+    html += `<a href="${p.carpeta}/secuencia2.pdf" target="_blank">📥 PDF</a></div>`;
+    html += `</div>`;
+
+    /* SECUENCIAS 3 A 8 (COMENTADAS - NO SE MUESTRAN)
+    html += `<div class="secuencia-item">`;
+    html += `<span>Secuencia 3</span>`;
+    html += `<div><a href="${p.carpeta}/secuencia3.html" target="_blank">📖 HTML</a>`;
+    html += `<a href="${p.carpeta}/secuencia3.pdf" target="_blank">📥 PDF</a></div>`;
+    html += `</div>`;
+
+    html += `<div class="secuencia-item">`;
+    html += `<span>Secuencia 4</span>`;
+    html += `<div><a href="${p.carpeta}/secuencia4.html" target="_blank">📖 HTML</a>`;
+    html += `<a href="${p.carpeta}/secuencia4.pdf" target="_blank">📥 PDF</a></div>`;
+    html += `</div>`;
+
+    // ... así hasta la 8
+    */
+    
+    html += '<div class="cerrar-modal" onclick="document.getElementById(\'modalSecuencias\').classList.remove(\'activo\')">✕ Cerrar</div>';
+    modalSecContenido.innerHTML = html;
+    modalSec.classList.add('activo');
+}
 
         function abrirModalPagos() {
             document.getElementById('modalPagos').classList.add('activo');
@@ -764,4 +783,5 @@
 </body>
 
 </html>
+
 
