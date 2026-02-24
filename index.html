@@ -678,37 +678,24 @@
             document.getElementById('nextPage').disabled = pagina === total;
         }
 
-      function abrirModal(p) {
+    function abrirModal(p) {
     let html = `<h2>${p.titulo}</h2>`;
     
-    // SECUENCIAS ACTIVAS (YA SUBIDAS)
-    html += `<div class="secuencia-item">`;
-    html += `<span>Secuencia 1</span>`;
-    html += `<div><a href="${p.carpeta}/secuencia1.html" target="_blank">📖 HTML</a>`;
-    html += `<a href="${p.carpeta}/secuencia1.pdf" target="_blank">📥 PDF</a></div>`;
-    html += `</div>`;
-
-    html += `<div class="secuencia-item">`;
-    html += `<span>Secuencia 2</span>`;
-    html += `<div><a href="${p.carpeta}/secuencia2.html" target="_blank">📖 HTML</a>`;
-    html += `<a href="${p.carpeta}/secuencia2.pdf" target="_blank">📥 PDF</a></div>`;
-    html += `</div>`;
-
-    /* SECUENCIAS 3 A 8 (COMENTADAS - NO SE MUESTRAN)
-    html += `<div class="secuencia-item">`;
-    html += `<span>Secuencia 3</span>`;
-    html += `<div><a href="${p.carpeta}/secuencia3.html" target="_blank">📖 HTML</a>`;
-    html += `<a href="${p.carpeta}/secuencia3.pdf" target="_blank">📥 PDF</a></div>`;
-    html += `</div>`;
-
-    html += `<div class="secuencia-item">`;
-    html += `<span>Secuencia 4</span>`;
-    html += `<div><a href="${p.carpeta}/secuencia4.html" target="_blank">📖 HTML</a>`;
-    html += `<a href="${p.carpeta}/secuencia4.pdf" target="_blank">📥 PDF</a></div>`;
-    html += `</div>`;
-
-    // ... así hasta la 8
-    */
+    // Lista de secuencias disponibles (las que has subido)
+    const disponibles = [1, 2];  // ← Aquí agregas más cuando subas
+    
+    for (let i = 0; i < disponibles.length; i++) {
+        let num = disponibles[i];
+        html += `
+            <div class="secuencia-item">
+                <span>Secuencia ${num}</span>
+                <div>
+                    <a href="el-padrino/secuencia${num}.html" target="_blank">📖 HTML</a>
+                    <a href="el-padrino/secuencia${num}.pdf" target="_blank">📥 PDF</a>
+                </div>
+            </div>
+        `;
+    }
     
     html += '<div class="cerrar-modal" onclick="document.getElementById(\'modalSecuencias\').classList.remove(\'activo\')">✕ Cerrar</div>';
     modalSecContenido.innerHTML = html;
@@ -783,5 +770,6 @@
 </body>
 
 </html>
+
 
 
