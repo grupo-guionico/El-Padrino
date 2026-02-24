@@ -668,7 +668,7 @@
                 el.addEventListener('click', () => {
                     const id = el.dataset.id;
                     const peli = peliculas.find(p => p.id == id);
-                    if (peli?.disponible) abrirModalSecuencias(peli);
+                    if (peli?.disponible) abrirModalSecuencias(p);
                 });
             });
 
@@ -677,8 +677,8 @@
             document.getElementById('prevPage').disabled = pagina === 1;
             document.getElementById('nextPage').disabled = pagina === total;
             
-     function function abrirModalSecuencias(peli) {
-          let html = `<h2>${p.titulo}</h2>`;
+     function abrirModalSecuencias(peli) {
+        let html = `<h2>${peli.titulo}</h2>`;
         // Lista de secuencias disponibles (las que has subido)
         const disponibles = [1, 2];  // ← Aquí agregas más cuando subas
     
@@ -771,6 +771,7 @@
 </body>
 
 </html>
+
 
 
 
