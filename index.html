@@ -677,12 +677,12 @@
             document.getElementById('prevPage').disabled = pagina === 1;
             document.getElementById('nextPage').disabled = pagina === total;
             
- function abrirModal(p) {
-    let html = `<h2>${p.titulo}</h2>`;
+     function function abrirModalSecuencias(peli) {
+          let html = `<h2>${p.titulo}</h2>`;
         // Lista de secuencias disponibles (las que has subido)
-    const disponibles = [1, 2];  // ← Aquí agregas más cuando subas
+        const disponibles = [1, 2];  // ← Aquí agregas más cuando subas
     
-    for (let i = 0; i < disponibles.length; i++) {
+        for (let i = 0; i < disponibles.length; i++) {
         let num = disponibles[i];
         html += `
             <div class="secuencia-item">
@@ -771,6 +771,7 @@
 </body>
 
 </html>
+
 
 
 
