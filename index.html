@@ -676,10 +676,10 @@
             document.getElementById('pageIndicator').textContent = `${pagina}/${total}`;
             document.getElementById('prevPage').disabled = pagina === 1;
             document.getElementById('nextPage').disabled = pagina === total;
-             function abrirModal(p) {
+            
+ function abrirModal(p) {
     let html = `<h2>${p.titulo}</h2>`;
-    
-    // Lista de secuencias disponibles (las que has subido)
+        // Lista de secuencias disponibles (las que has subido)
     const disponibles = [1, 2];  // ← Aquí agregas más cuando subas
     
     for (let i = 0; i < disponibles.length; i++) {
@@ -703,7 +703,7 @@
 
    
 
-        function abrirModalPagos() {
+ function abrirModalPagos() {
             document.getElementById('modalPagos').classList.add('activo');
         }
 
@@ -771,6 +771,7 @@
 </body>
 
 </html>
+
 
 
 
