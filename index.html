@@ -27,17 +27,18 @@
         }
 
         /* ===== LAYOUT CON IMAGOTIPO IZQUIERDA ===== */
-        .layout-principal {
-            display: grid;
-            grid-template-columns: auto 1fr;
-            grid-template-rows: 1fr auto;
-            gap: 40px;
-            min-height: 100vh;
-            padding: 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-            align-items: start;
-        }
+       .layout-principal {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 1fr auto;
+    gap: 40px;
+    min-height: 100vh;      /* Fallback */
+    min-height: 100dvh;     /* Moderno */
+    padding: 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+}
 
         /* ===== IMAGOTIPO IZQUIERDA CON PALPITACIÓN ===== */
         .imagotipo {
@@ -542,4 +543,5 @@
 
 
 </html>
+
 
