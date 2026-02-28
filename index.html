@@ -271,25 +271,26 @@
             font-size: 0.85rem;
         }
 
-        /* ===== BOTÓN CAFÉ ===== */
-        .boton-cafe-modal {
-            margin: 25px 0;
-        }
+       .btn-invitar {
+    width: 100%;
+    background: var(--gold);        /* Fondo dorado */
+    border: 1px solid var(--gold);
+    color: #000;                     /* Texto negro para contraste */
+    padding: 16px 24px;
+    border-radius: 50px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
 
-        .btn-invitar {
-            width: 100%;
-            background: transparent;
-            border: 1px solid var(--gold);
-            color: var(--gold);
-            padding: 16px 24px;
-            border-radius: 50px;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
+.btn-invitar:hover {
+    background: #000;                /* Invertido en hover */
+    color: var(--gold);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(201, 162, 39, 0.3);
+}
         .btn-invitar:hover {
             background: var(--gold);
             color: #000;
@@ -595,3 +596,4 @@
 </body>
 
 </html>
+
