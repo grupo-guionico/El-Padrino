@@ -25,82 +25,50 @@
             transition: filter 0.3s ease;
             pointer-events: none;
         }
-
-        /* ===== LAYOUT CON IMAGOTIPO IZQUIERDA ===== */
-       .layout-principal {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr auto;
-    gap: 40px;
-    min-height: 100vh;      /* Fallback */
-    min-height: 100dvh;     /* Moderno */
-    padding: 40px;
-    max-width: 1400px;
-    margin: 0 auto;
-    align-items: start;
-}
-     @media (max-width: 768px) {
+@media (max-width: 768px) {
     body {
         overflow-y: auto;
-    }
-
-    .layout-principal {
-        grid-template-columns: 1fr;
-        /* Una sola fila para contenido, footer al final */
-        grid-template-rows: auto 1fr; 
-        gap: 0; /* Sin gap, controlamos con padding */
-        padding: 20px;
-        min-height: auto;
         height: auto;
     }
 
-    .imagotipo {
-        position: relative;
-        top: 0;
-        width: 100px; /* Logo compacto */
-        margin: 0 auto 15px; /* Margen abajo */
-    }
-
-    /* CONTENEDOR QUE OCUPA TODO EL ESPACIO DISPONIBLE */
-    .contenedor-principal {
-        grid-column: 1;
-        grid-row: 1;
-        width: 100%;
-        display: flex;
+    .layout-principal {
+        display: flex; /* Cambia a flex en móvil, más simple */
         flex-direction: column;
-        align-items: center;
+        min-height: auto;
+        height: auto;
+        padding: 20px;
         gap: 20px;
     }
 
-    /* IMAGEN QUE OCUPA CASI TODA LA PANTALLA */
+    .imagotipo {
+        width: 100px;
+        margin: 0 auto;
+        position: relative;
+        top: 0;
+    }
+
+    .contenedor-principal {
+        width: 100%;
+        flex: 1; /* Ocupa el espacio disponible */
+    }
+
     .imagen-fondo {
         width: 100%;
-        max-width: 100%;
-        /* Sin max-height, deja que la imagen muestre su tamaño natural */
     }
 
     .imagen-fondo img {
         width: 100%;
         height: auto;
-        max-height: 75vh; /* Límite generoso pero no excesivo */
-        object-fit: contain; /* Muestra toda la imagen sin recortar */
+        max-height: none; /* Sin límite, tamaño natural */
     }
 
-    /* FOOTER PEGADO ABAJO, SIN ESPACIO EXTRA */
     .footer {
-        grid-column: 1;
-        grid-row: 2; /* Última fila */
-        padding: 25px 15px;
-        font-size: 1.2rem;
-        margin-top: 20px; /* Solo un poco de separación */
-    }
-
-    .footer span {
-        font-size: 1.5rem;
-        margin-bottom: 10px;
+        padding: 20px;
+        font-size: 1.1rem;
+        margin-top: 10px; /* Solo separación mínima */
+        flex-shrink: 0; /* No se encoge */
     }
 }
-
         @keyframes palpitar {
 
             0%,
@@ -595,6 +563,7 @@
 
 
 </html>
+
 
 
 
