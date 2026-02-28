@@ -62,14 +62,17 @@
         max-height: none; /* Sin límite, tamaño natural */
     }
 
-    .footer {
-        padding: 20px;
-        font-size: 1.1rem;
-        margin-top: 10px; /* Solo separación mínima */
-        flex-shrink: 0; /* No se encoge */
+      .footer {
+        padding: 25px 15px;
+        font-size: 0.9rem; /* Letra más pequeña SOLO en móviles */
+        flex-shrink: 0;
     }
-}
-        @keyframes palpitar {
+
+    .footer span {
+        font-size: 1.1rem; /* Nombre del grupo más pequeño */
+        margin-bottom: 8px;
+    }
+}    @keyframes palpitar {
 
             0%,
             100% {
@@ -563,6 +566,7 @@
 
 
 </html>
+
 
 
 
