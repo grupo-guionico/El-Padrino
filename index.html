@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,61 +24,39 @@
             transition: filter 0.3s ease;
             pointer-events: none;
         }
-@media (max-width: 768px) {
-    body {
-        overflow-y: auto;
-        height: auto;
-    }
 
-    .layout-principal {
-        display: flex; /* Cambia a flex en móvil, más simple */
-        flex-direction: column;
-        min-height: auto;
-        height: auto;
-        padding: 20px;
-        gap: 20px;
-    }
+        /* ===== LAYOUT GENERAL ===== */
+        .layout-principal {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            grid-template-rows: 1fr auto;
+            gap: 40px;
+            min-height: 100vh;
+            min-height: 100dvh;
+            padding: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: start;
+        }
 
-    .imagotipo {
-        width: 100px;
-        margin: 0 auto;
-        position: relative;
-        top: 0;
-    }
+        /* ===== IMAGOTIPO CON PALPITACIÓN ===== */
+        .imagotipo {
+            grid-column: 1;
+            grid-row: 1;
+            position: sticky;
+            top: 40px;
+            width: clamp(120px, 15vw, 200px);
+            z-index: 100;
+            cursor: pointer;
+            animation: palpitar 3s ease-in-out infinite;
+            align-self: start;
+        }
 
-    .contenedor-principal {
-        width: 100%;
-        flex: 1; /* Ocupa el espacio disponible */
-    }
-
-    .imagen-fondo {
-        width: 100%;
-    }
-
-    .imagen-fondo img {
-        width: 100%;
-        height: auto;
-        max-height: none; /* Sin límite, tamaño natural */
-    }
-
-      .footer {
-        padding: 25px 15px;
-        font-size: 0.9rem; /* Letra más pequeña SOLO en móviles */
-        flex-shrink: 0;
-    }
-
-    .footer span {
-        font-size: 1.1rem; /* Nombre del grupo más pequeño */
-        margin-bottom: 8px;
-    }
-}    @keyframes palpitar {
-
-            0%,
-            100% {
+        @keyframes palpitar {
+            0%, 100% {
                 transform: translateY(0) scale(1);
                 filter: brightness(1) drop-shadow(0 0 5px rgba(255, 215, 0, 0.3));
             }
-
             50% {
                 transform: translateY(-10px) scale(1.03);
                 filter: brightness(1.15) drop-shadow(0 0 20px rgba(255, 215, 0, 0.8));
@@ -115,7 +92,6 @@
             position: relative;
             width: 100%;
             max-width: 800px;
-            height: auto;
             border-radius: 24px;
             overflow: hidden;
         }
@@ -126,21 +102,19 @@
             display: block;
         }
 
-        /* ===== FOOTER SIN BOTÓN ===== */
+        /* ===== FOOTER GENERAL ===== */
         .footer {
             grid-column: 1 / -1;
             grid-row: 2;
             text-align: center;
             padding: 50px 20px;
-            font-size: 1.rem;
+            font-size: 1.2rem;
             color: #666;
             letter-spacing: 2px;
-            border-top: 1px solid transparent;
-            border-image: linear-gradient(90deg, transparent, rgb(63, 62, 59), transparent) 1;
         }
 
         .footer span {
-            color: rgb(105, 105, 100);
+            color: gold;
             font-weight: bold;
             font-size: 1.5rem;
             display: block;
@@ -157,7 +131,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.95);
+            background: rgba(0,0,0,0.95);
             backdrop-filter: blur(12px);
             z-index: 1000;
             align-items: center;
@@ -201,7 +175,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             border: 1px solid rgba(255, 215, 0, 0.3);
             border-radius: 10px;
             padding: 14px 18px;
@@ -253,7 +227,7 @@
             font-size: 0.9rem;
         }
 
-        /* ===== BOTÓN CAFÉ DENTRO DEL MODAL ===== */
+        /* ===== BOTÓN CAFÉ EN MODAL ===== */
         .boton-cafe-modal {
             margin: 25px 0;
             text-align: center;
@@ -328,130 +302,132 @@
             transform: translateX(10px);
         }
 
-        //* ===== RESPONSIVE ===== */
-
-/* Móviles y tablets */
-@media (max-width: 768px) {
-    body {
-        overflow-y: scroll; /* Fuerza scroll siempre */
-        height: auto;
-    }
-
-    .layout-principal {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr auto;
-        gap: 30px;
-        padding: 25px;
-        min-height: auto; /* Quita el forzado de altura */
-        height: auto;
-    }
-
-    .imagotipo {
-        position: relative;
-        top: 0;
-        grid-column: 1;
-        grid-row: 1;
-        width: 150px;
-        margin: 0 auto;
-    }
-
-    .contenedor-principal {
-        grid-column: 1;
-        grid-row: 2;
-    }
-
-    .footer {
-        padding: 35px 15px;
-        font-size: 1.1rem;
-    }
-}
-        @media (max-width: 480px) {
-            .layout-principal {
-                padding: 20px;
-                gap: 25px;
+        /* ===== RESPONSIVE MÓVILES ===== */
+        @media (max-width: 768px) {
+            body {
+                overflow-y: auto;
+                min-height: 100vh;
+                min-height: 100dvh;
             }
 
+            .layout-principal {
+                display: flex;
+                flex-direction: column;
+                min-height: 100dvh;
+                padding: 20px;
+                gap: 15px;
+            }
+
+            /* IMAGOTIPO CENTRADO CON PALPITACIÓN */
             .imagotipo {
-                width: 130px;
+                position: relative;
+                top: 0;
+                width: 120px;
+                margin: 0 auto;
+                align-self: center;
+                /* La animación palpitar sigue activa */
+            }
+
+            .contenedor-principal {
+                width: 100%;
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 20px;
             }
 
             .imagen-fondo {
-                border-radius: 16px;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .imagen-fondo img {
+                width: 100%;
+                height: auto;
+                max-height: 60vh;
+                object-fit: contain;
+            }
+
+            /* FOOTER CON LETRA PEQUEÑA SOLO EN MÓVILES */
+            .footer {
+                padding: 25px 15px;
+                font-size: 0.9rem; /* Letra más pequeña */
+                flex-shrink: 0;
+                margin-top: auto;
+            }
+
+            .footer span {
+                font-size: 1.1rem; /* Nombre más pequeño */
+                margin-bottom: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .layout-principal {
+                padding: 15px;
+                gap: 10px;
+            }
+
+            .imagotipo {
+                width: 100px;
+            }
+
+            .imagen-fondo img {
+                max-height: 55vh;
             }
 
             .footer {
-                font-size: 1rem;
-                padding: 30px 10px;
+                font-size: 0.85rem; /* Aún más pequeño en móviles pequeños */
+                padding: 20px 10px;
             }
 
-            .modal-contenido {
-                padding: 25px;
+            .footer span {
+                font-size: 1rem;
             }
         }
     </style>
 </head>
-
 <body>
     <!-- AUDIOS -->
     <audio id="sonidoHover" preload="auto"></audio>
     <audio id="sonidoClick" preload="auto"></audio>
 
     <div class="layout-principal">
-        <!-- IMAGOTIPO IZQUIERDA CON PALPITACIÓN -->
+        <!-- IMAGOTIPO CON PALPITACIÓN -->
         <div class="imagotipo" id="imagotipo">
             <img src="imagenes/el-padrino-imagotipo.png" alt="GRUPO GUIONICO">
         </div>
 
-        <!-- CONTENIDO CENTRAL (SIN BOTÓN) -->
+        <!-- CONTENIDO -->
         <div class="contenedor-principal">
             <div class="imagen-fondo">
                 <img src="imagenes/el-padrino-fondo.png" alt="El Padrino">
             </div>
         </div>
 
-        <!-- FOOTER SIN BOTÓN -->
+        <!-- FOOTER -->
         <div class="footer">
             <span>🎬 GRUPO GUIONICO</span>
-        Este material se presenta exclusivamente con fines de estudio, análisis y conservación cultural.
-        El guion original y todos los derechos relacionados pertenecen a Paramount Pictures.
-        No se reclama propiedad sobre el contenido original ni se persigue ningún fin comercial con su publicación.
+            📧 grupoguionico@gmail.com
         </div>
     </div>
 
-    <!-- MODAL SECUENCIAS CON BOTÓN CAFÉ DENTRO -->
+    <!-- MODAL SECUENCIAS -->
     <div class="modal-secuencias" id="modalSecuencias">
         <div class="modal-contenido">
             <h2>SECUENCIAS</h2>
             <div class="lista-secuencias-modal">
-                <div class="secuencia-item activo"><span>SECUENCIA 1</span>
-                    <div class="links"><a href="el-padrino/secuencia1.html" target="_blank">Ver PDF>📖</a><a
-                            href="el-padrino/secuencia1.pdf" target="_blank">Ver PDF>📥</a></div>
-                </div>
-                <div class="secuencia-item activo"><span>SECUENCIA 2</span>
-                    <div class="links"><a href="el-padrino/secuencia2.html" target="_blank">Ver PDF>📖</a><a
-                            href="el-padrino/secuencia2.pdf" target="_blank">Ver PDF>📥</a></div>
-                </div>
-                <div class="secuencia-item opaco"><span>SECUENCIA 3</span>
-                    <div class="links"><span>📖</span><span>📥</span></div>
-                </div>
-                <div class="secuencia-item opaco"><span>SECUENCIA 4</span>
-                    <div class="links"><span>📖</span><span>📥</span></div>
-                </div>
-                <div class="secuencia-item opaco"><span>SECUENCIA 5</span>
-                    <div class="links"><span>📖</span><span>📥</span></div>
-                </div>
-                <div class="secuencia-item opaco"><span>SECUENCIA 6</span>
-                    <div class="links"><span>📖</span><span>📥</span></div>
-                </div>
-                <div class="secuencia-item opaco"><span>SECUENCIA 7</span>
-                    <div class="links"><span>📖</span><span>📥</span></div>
-                </div>
-                <div class="secuencia-item opaco"><span>SECUENCIA 8</span>
-                    <div class="links"><span>📖</span><span>📥</span></div>
-                </div>
+                <div class="secuencia-item activo"><span>SECUENCIA 1</span><div class="links"><a href="el-padrino/secuencia1.html">📖</a><a href="el-padrino/secuencia1.pdf">📥</a></div></div>
+                <div class="secuencia-item activo"><span>SECUENCIA 2</span><div class="links"><a href="el-padrino/secuencia2.html">📖</a><a href="el-padrino/secuencia2.pdf">📥</a></div></div>
+                <div class="secuencia-item opaco"><span>SECUENCIA 3</span><div class="links"><span>📖</span><span>📥</span></div></div>
+                <div class="secuencia-item opaco"><span>SECUENCIA 4</span><div class="links"><span>📖</span><span>📥</span></div></div>
+                <div class="secuencia-item opaco"><span>SECUENCIA 5</span><div class="links"><span>📖</span><span>📥</span></div></div>
+                <div class="secuencia-item opaco"><span>SECUENCIA 6</span><div class="links"><span>📖</span><span>📥</span></div></div>
+                <div class="secuencia-item opaco"><span>SECUENCIA 7</span><div class="links"><span>📖</span><span>📥</span></div></div>
+                <div class="secuencia-item opaco"><span>SECUENCIA 8</span><div class="links"><span>📖</span><span>📥</span></div></div>
             </div>
 
-            <!-- BOTÓN CAFÉ DENTRO DEL MODAL -->
             <div class="boton-cafe-modal">
                 <button class="btn-invitar" id="btnCafe">
                     ☕ INVÍTAME UN CAFÉ
@@ -498,12 +474,12 @@
         function reproducirSonido(audioElement, cooldownTime = 0, lastTimeVar = 0) {
             const ahora = Date.now();
             if (cooldownTime > 0 && ahora - lastTimeVar < cooldownTime) return false;
-
+            
             const random = Math.floor(Math.random() * sonidos.length);
             audioElement.src = sonidos[random];
             audioElement.currentTime = 0;
             audioElement.play().catch(e => console.log('Audio error:', e));
-
+            
             return ahora;
         }
 
@@ -518,10 +494,8 @@
             body.classList.add('modal-abierto');
         });
 
-        // CLICK EN BOTÓN CAFÉ DENTRO DEL MODAL
         btnCafe.addEventListener('click', () => {
             modalPagos.classList.add('mostrar');
-            // No quitamos modalSec, se superponen o cierras el de secuencias primero
         });
 
         function cerrarModales() {
@@ -563,13 +537,4 @@
         });
     </script>
 </body>
-
-
 </html>
-
-
-
-
-
-
-
