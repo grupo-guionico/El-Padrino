@@ -9,7 +9,7 @@
         /* ===== VARIABLES DE CONTROL ===== */
         :root {
             /* CONTROLES DEL IMAGOTIPO - AJUSTA ESTOS VALORES */
-            --logo-top: 26%;
+            --logo-top: 30%;
             /* Distancia desde arriba (0-100%) */
             --logo-left: 30%;
             /* Desde la izquierda (0-100%) */
@@ -73,8 +73,8 @@
 
             0%,
             100% {
-                transform: translate(-50%, -50%) scale(1.2);
-                filter: brightness(1) drop-shadow(0 0 10px rgba(201, 162, 39, 0.3));
+                transform: translate(-50%, -50%) scale(1);
+                filter: brightness(1) drop-shadow(0 0 5px rgba(201, 162, 39, 0.3));
             }
 
             50% {
@@ -85,7 +85,7 @@
 
         .imagotipo:hover {
             animation-play-state: paused;
-            filter: brightness(2) drop-shadow(0 0 5px var(--gold-bright));
+            filter: brightness(1.4) drop-shadow(0 0 30px var(--gold-bright));
             transform: translate(-50%, -50%) scale(1.08);
         }
 
@@ -363,7 +363,7 @@
 
             /* IMAGOTIPO MÁS CENTRADO EN MÓVIL */
             .imagotipo {
-                --logo-top: 30.8%;
+                --logo-top: 35.8%;
                 --logo-left: 20%;
                 --logo-size: 100px;
             }
@@ -397,6 +397,11 @@
 </head>
 
 <body>
+
+    <!-- AUDIO DE FONDO - BANDA SONORA -->
+    <audio id="musicaFondo" loop preload="auto">
+        <source src="band-sonora.mp3" type="audio/mpeg">
+    </audio>
     <!-- AUDIOS -->
     <audio id="sonidoHover" preload="auto"></audio>
     <audio id="sonidoClick" preload="auto"></audio>
@@ -434,15 +439,15 @@
                 <div class="secuencia-item activo">
                     <span>SECUENCIA 1</span>
                     <div class="links">
-                        <a href="el-padrino/secuencia1.html">📖</a>
-                        <a href="el-padrino/secuencia1.pdf">📥</a>
+                        <a href="el-padrino/secuencia1.html" target="_blank" rel="noopener">📖</a>
+                        <a href="el-padrino/secuencia1.pdf" target="_blank" rel="noopener">📥</a>
                     </div>
                 </div>
                 <div class="secuencia-item activo">
                     <span>SECUENCIA 2</span>
                     <div class="links">
-                        <a href="el-padrino/secuencia2.html">📖</a>
-                        <a href="el-padrino/secuencia2.pdf">📥</a>
+                        <a href="el-padrino/secuencia2.html" target="_blank" rel="noopener">📖</a>
+                        <a href="el-padrino/secuencia2.pdf" target="_blank" rel="noopener">📥</a>
                     </div>
                 </div>
                 <div class="secuencia-item opaco"><span>SECUENCIA 3</span>
@@ -488,6 +493,14 @@
     </div>
 
     <script>
+
+        const musicaFondo = document.getElementById('musicaFondo');
+
+            // Iniciar música al primer click en la página
+            document.addEventListener('click', () => {
+                musicaFondo.volume = 0.2; // Volumen bajo (20%)
+                musicaFondo.play().catch(e => console.log('Música bloqueada:', e));
+            }, { once: true });
         const body = document.body;
         const imagotipo = document.getElementById('imagotipo');
         const modalSec = document.getElementById('modalSecuencias');
@@ -499,10 +512,12 @@
         const sonidoClick = document.getElementById('sonidoClick');
 
         const sonidos = [
-            'https://www.sounddino.com/mp3/click-button.mp3',
-            'https://www.sounddino.com/mp3/switch-button.mp3',
-            'https://www.sounddino.com/mp3/electronic-click.mp3',
-            'https://www.sounddino.com/mp3/cartoon-click.mp3'
+            'oferta2.mp3',
+            'oferta2.mp3',
+            'oferta2.mp3',
+            'oferta2.mp3',
+            'oferta2.mp3',
+            
         ];
 
         // COOLDOWN ANTI-SPAM
@@ -522,9 +537,9 @@
         }
 
         // HOVER - SONIDO
-        imagotipo.addEventListener('mouseenter', () => {
-            reproducirSonido(sonidoHover);
-        });
+      //  imagotipo.addEventListener('mouseenter', () => {
+          //  reproducirSonido(sonidoHover);
+      //  });//
 
         // CLICK - ABRIR MODAL + SONIDO
         imagotipo.addEventListener('click', () => {
@@ -580,10 +595,3 @@
 </body>
 
 </html>
-
-
-
-
-
-
-
