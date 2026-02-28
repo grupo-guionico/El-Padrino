@@ -319,39 +319,43 @@
             transform: translateX(10px);
         }
 
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .layout-principal {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto 1fr auto;
-                gap: 30px;
-                padding: 25px;
-            }
+        //* ===== RESPONSIVE ===== */
 
-            .imagotipo {
-                position: relative;
-                top: 0;
-                grid-column: 1;
-                grid-row: 1;
-                width: 150px;
-                margin: 0 auto;
-            }
+/* Móviles y tablets */
+@media (max-width: 768px) {
+    body {
+        overflow-y: scroll; /* Fuerza scroll siempre */
+        height: auto;
+    }
 
-            .contenedor-principal {
-                grid-column: 1;
-                grid-row: 2;
-            }
+    .layout-principal {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
+        gap: 30px;
+        padding: 25px;
+        min-height: auto; /* Quita el forzado de altura */
+        height: auto;
+    }
 
-            .footer {
-                padding: 35px 15px;
-                font-size: 1.1rem;
-            }
+    .imagotipo {
+        position: relative;
+        top: 0;
+        grid-column: 1;
+        grid-row: 1;
+        width: 150px;
+        margin: 0 auto;
+    }
 
-            .footer span {
-                font-size: 1.3rem;
-            }
-        }
+    .contenedor-principal {
+        grid-column: 1;
+        grid-row: 2;
+    }
 
+    .footer {
+        padding: 35px 15px;
+        font-size: 1.1rem;
+    }
+}
         @media (max-width: 480px) {
             .layout-principal {
                 padding: 20px;
@@ -553,6 +557,7 @@
 
 
 </html>
+
 
 
 
