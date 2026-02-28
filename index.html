@@ -39,29 +39,67 @@
     margin: 0 auto;
     align-items: start;
 }
-        @media (max-width: 768px) {
+     @media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+    }
+
     .layout-principal {
-        min-height: auto; /* Quita el forzado de altura */
+        grid-template-columns: 1fr;
+        /* Una sola fila para contenido, footer al final */
+        grid-template-rows: auto 1fr; 
+        gap: 0; /* Sin gap, controlamos con padding */
+        padding: 20px;
+        min-height: auto;
         height: auto;
     }
-    
-    body {
-        overflow-y: scroll; /* Fuerza scroll siempre */
+
+    .imagotipo {
+        position: relative;
+        top: 0;
+        width: 100px; /* Logo compacto */
+        margin: 0 auto 15px; /* Margen abajo */
+    }
+
+    /* CONTENEDOR QUE OCUPA TODO EL ESPACIO DISPONIBLE */
+    .contenedor-principal {
+        grid-column: 1;
+        grid-row: 1;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /* IMAGEN QUE OCUPA CASI TODA LA PANTALLA */
+    .imagen-fondo {
+        width: 100%;
+        max-width: 100%;
+        /* Sin max-height, deja que la imagen muestre su tamaño natural */
+    }
+
+    .imagen-fondo img {
+        width: 100%;
+        height: auto;
+        max-height: 75vh; /* Límite generoso pero no excesivo */
+        object-fit: contain; /* Muestra toda la imagen sin recortar */
+    }
+
+    /* FOOTER PEGADO ABAJO, SIN ESPACIO EXTRA */
+    .footer {
+        grid-column: 1;
+        grid-row: 2; /* Última fila */
+        padding: 25px 15px;
+        font-size: 1.2rem;
+        margin-top: 20px; /* Solo un poco de separación */
+    }
+
+    .footer span {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
     }
 }
-
-        /* ===== IMAGOTIPO IZQUIERDA CON PALPITACIÓN ===== */
-        .imagotipo {
-            grid-column: 1;
-            grid-row: 1;
-            position: sticky;
-            top: 40px;
-            width: clamp(120px, 15vw, 200px);
-            z-index: 100;
-            cursor: pointer;
-            animation: palpitar 3s ease-in-out infinite;
-            align-self: start;
-        }
 
         @keyframes palpitar {
 
@@ -557,6 +595,7 @@
 
 
 </html>
+
 
 
 
