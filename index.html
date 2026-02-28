@@ -272,18 +272,34 @@
         }
 .btn-invitar {
     width: 100%;
-    background: var(--gold);
+    background: var(--gold);        /* Dorado sólido */
     border: 1px solid var(--gold);
-    color: #000;
+    color: #000;                     /* Texto negro */
     padding: 16px 24px;
     border-radius: 50px;
-    font-weight: 500;
+    font-weight: bold;               /* Más llamativo */
     font-size: 0.95rem;
     letter-spacing: 1px;
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
+.btn-invitar:hover {
+    background: #000;                /* Negro en hover */
+    color: var(--gold);              /* Texto dorado */
+    border: 1px solid var(--gold);
+    transform: translateY(-2px);
+    /* Sin box-shadow */
+}
+
+.btn-invitar small {
+    display: block;
+    font-size: 0.75rem;
+    opacity: 0.9;
+    margin-top: 6px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+}
 .btn-invitar:hover {
     background: #000;
     color: var(--gold);
@@ -587,6 +603,7 @@
 </body>
 
 </html>
+
 
 
 
