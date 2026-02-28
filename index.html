@@ -16,8 +16,9 @@
             --logo-size: clamp(120px, 15vw, 200px);
 
             /* COLORES */
-            --gold: #5f5f5f;
+            --gold: #d4af37;
             --gold-bright: #ffd700;
+            --gold-intense: #ffec8b;
             --bg: #000;
             --surface: rgba(255, 255, 255, 0.03);
         }
@@ -125,7 +126,6 @@
 
         /* ===== FOOTER GLASSMORPHISM ===== */
         .footer {
-           
             bottom: 0;
             left: 0;
             right: 0;
@@ -195,9 +195,9 @@
             width: min(450px, 95%);
             max-height: 85vh;
             overflow-y: auto;
-            box-shadow: 0 0 80px rgba(201, 162, 39, 0.15);
         }
 
+        /* TÍTULO DEL MODAL DORADO */
         .modal-contenido h2 {
             color: var(--gold);
             text-align: center;
@@ -205,6 +205,12 @@
             font-size: 1.6rem;
             font-weight: 300;
             letter-spacing: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .modal-contenido:hover h2 {
+            color: var(--gold-intense);
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
         }
 
         .lista-secuencias-modal {
@@ -259,8 +265,8 @@
         }
 
         .links a:hover {
+            background: var(--gold-intense);
             transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(201, 162, 39, 0.4);
         }
 
         .links span {
@@ -270,54 +276,47 @@
             border-radius: 6px;
             font-size: 0.85rem;
         }
-.btn-invitar {
-    width: 100%;
-    background: var(--gold);        /* Dorado sólido */
-    border: 1px solid var(--gold);
-    color: #000;                     /* Texto negro */
-    padding: 16px 24px;
-    border-radius: 50px;
-    font-weight: bold;               /* Más llamativo */
-    font-size: 0.95rem;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
 
-.btn-invitar:hover {
-    background: #000;                /* Negro en hover */
-    color: var(--gold);              /* Texto dorado */
-    border: 1px solid var(--gold);
-    transform: translateY(-2px);
-    /* Sin box-shadow */
-}
+        /* ===== BOTÓN CAFÉ DORADO BRILLANTE ===== */
+        .boton-cafe-modal {
+            margin: 25px 0;
+        }
 
-.btn-invitar small {
-    display: block;
-    font-size: 0.75rem;
-    opacity: 0.9;
-    margin-top: 6px;
-    font-weight: normal;
-    letter-spacing: 0.5px;
-}
-.btn-invitar:hover {
-    background: #000;
-    color: var(--gold);
-    transform: translateY(-2px);
-}
-
-.btn-invitar small {
-    display: block;
-    font-size: 0.75rem;
-    opacity: 0.8;
-    margin-top: 6px;
-    font-weight: normal;
-    letter-spacing: 0.5px;
-}
-        .cerrar-modal {
-            background: var(--gold);
+        .btn-invitar {
+            width: 100%;
+            background: var(--gold-bright);
+            border: 2px solid var(--gold-bright);
             color: #000;
-            border: none;
+            padding: 18px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        /* HOVER INTENSIFICA EL DORADO */
+        .btn-invitar:hover {
+            background: var(--gold-intense);
+            border-color: var(--gold-intense);
+            color: #000;
+            transform: scale(1.05);
+        }
+
+        .btn-invitar small {
+            display: block;
+            font-size: 0.8rem;
+            opacity: 0.9;
+            margin-top: 6px;
+            font-weight: normal;
+            letter-spacing: 0.5px;
+        }
+
+        .cerrar-modal {
+            background: transparent;
+            color: var(--gold);
+            border: 1px solid var(--gold);
             padding: 14px 40px;
             border-radius: 50px;
             font-weight: 500;
@@ -332,10 +331,11 @@
         }
 
         .cerrar-modal:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(201, 162, 39, 0.3);
+            background: var(--gold);
+            color: #000;
         }
 
+        /* LINKS DE PAGO DORADOS */
         .modal-pagos a {
             display: block;
             color: var(--gold);
@@ -350,7 +350,8 @@
         }
 
         .modal-pagos a:hover {
-            background: var(--gold);
+            background: var(--gold-bright);
+            border-color: var(--gold-bright);
             color: #000;
             transform: translateX(5px);
         }
@@ -504,11 +505,11 @@
 
         const musicaFondo = document.getElementById('musicaFondo');
 
-            // Iniciar música al primer click en la página
-            document.addEventListener('click', () => {
-                musicaFondo.volume = 0.2; // Volumen bajo (20%)
-                musicaFondo.play().catch(e => console.log('Música bloqueada:', e));
-            }, { once: true });
+        // Iniciar música al primer click en la página
+        document.addEventListener('click', () => {
+            musicaFondo.volume = 0.2; // Volumen bajo (20%)
+            musicaFondo.play().catch(e => console.log('Música bloqueada:', e));
+        }, { once: true });
         const body = document.body;
         const imagotipo = document.getElementById('imagotipo');
         const modalSec = document.getElementById('modalSecuencias');
@@ -525,7 +526,7 @@
             'oferta2.mp3',
             'oferta2.mp3',
             'oferta2.mp3',
-            
+
         ];
 
         // COOLDOWN ANTI-SPAM
@@ -545,9 +546,9 @@
         }
 
         // HOVER - SONIDO
-      //  imagotipo.addEventListener('mouseenter', () => {
-          //  reproducirSonido(sonidoHover);
-      //  });//
+        //  imagotipo.addEventListener('mouseenter', () => {
+        //  reproducirSonido(sonidoHover);
+        //  });//
 
         // CLICK - ABRIR MODAL + SONIDO
         imagotipo.addEventListener('click', () => {
@@ -603,7 +604,3 @@
 </body>
 
 </html>
-
-
-
-
